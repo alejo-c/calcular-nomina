@@ -1,3 +1,6 @@
+# Repositorio: https://github.com/alejo-c/calcular-nomina
+# Presentado por: José Alejandro Castrillón Ortega
+
 from colorama import Fore, Style, init
 
 
@@ -30,12 +33,21 @@ class Empleado:
 
 def main():
     init(convert=True)
-    
+
+    # datos = []
+    # print('A continuación ingrese los datos de 5 empleados...')
+    # for i in range(5):
+    #     print (f'- Empleado {i+1} ----------') # Empleado i
+    #     nombre = input('Nombre: ')
+    #     apellido = input('Apellido: ')
+    #     horas_trabajadas = int(input('Horas Trabajadas (mes): '))
+    #     datos += [(nombre, apellido, horas_trabajadas)]
+
     datos = [
         ("Antonio", "García", 240),
         ("Maria", "Rodríguez", 210),
-        ("Manuel", "Gonzalez", 300),
-        ("Isabel", "Fernandez", 270),
+        ("Manuel", "González", 300),
+        ("Isabel", "Fernández", 270),
         ("Jose", "Martínez", 330),
     ]
     empleados = []
@@ -43,10 +55,11 @@ def main():
     for empleado in datos:
         empleados += [Empleado(*empleado)]
 
+    print("\n- Resultados -----------")
     for e in empleados:
         empleado = f"{Fore.RED}Empleado {Fore.BLUE}[{Fore.WHITE}{e.nombre} {e.apellido}{Fore.BLUE}]"
-        nomina = f"{Fore.GREEN}\tNomina: {Fore.WHITE}{e.calcular_nomina()}"
-        print(f"{empleado}. {nomina}")
+        nomina = f"{Fore.GREEN}Nomina = {Fore.WHITE}{e.calcular_nomina()}"
+        print(f"{empleado}: \t{nomina}")
 
 
 if __name__ == "__main__":
